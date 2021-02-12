@@ -5,12 +5,18 @@ class Menu extends Component {
   constructor(props) {
     super(props);
   }
-
+    render() {
+      return <p>Menu</p>;
+    }
 }
 
 class Order extends Component{
     constructor(props) {
         super(props);
+    }
+
+    render() {
+        return <p>Order</p>;
     }
 }
 
