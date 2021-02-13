@@ -4,8 +4,12 @@ import {Component} from "react";
 class Menu extends Component {
   constructor(props) {
     super(props);
+    const state = {
+        menu: []
+    }
   }
     render() {
+
       return <p>Menu</p>;
     }
 }
@@ -24,6 +28,7 @@ class Order extends Component{
 class App extends Component {
     constructor(props) {
         super(props);
+        const state = {}
     }
 
     componentDidMount() {
@@ -33,12 +38,14 @@ class App extends Component {
             {item: "Cake", price: "2.99"},
             {item: "Steak", price: "18.99"}
         ]
+
+        this.setState({menu});
     }
 
     render() {
     return (
         <div className="App">
-            <Menu/>
+            <Menu menu={this.state}/>
             <Order/>
         </div>
     );
