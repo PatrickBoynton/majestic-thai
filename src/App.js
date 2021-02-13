@@ -5,7 +5,7 @@ class Menu extends Component {
 
     render() {
         const menuItems = this.props.menu?.map((items, index) => (
-            <li key={index} onClick={() => console.log(items.item)}>{items.item}: ${items.price}</li>
+            <li onClick={this.props.click} key={index}>{items.item}: ${items.price}</li>
         ));
       return (<ul>
                 {menuItems}
@@ -14,13 +14,23 @@ class Menu extends Component {
 }
 
 class Order extends Component{
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: ""
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+        this.setState({value: event.target.value})
+    }
     render() {
+        const menu = this.props.menu?.map(menuItem => menuItem);
         const order = this.props.order?.map((items, index) =>
             <li key={index}>
-                <h1>{items.item}</h1>
-                <p>${items.price(3.99, items.quantity)}</p>
-                <input value={items.quantity}/>
+                <h1>{menu[1].item}</h1>
+                <p>${items.price(menu[1].price, this.state.value).toFixed(2)}</p>
+                <input type="number" value={this.state.value} onChange={this.handleChange}/>
             </li>);
         return <ul>
                 {order}
@@ -39,16 +49,20 @@ class App extends Component {
             {item: "Steak", price: "18.99"}
         ]
         const order = [
-            {item: "Burger", quantity: 5, price: (price,  quantity) => (price * quantity)}
+            {item: "Burger", quantity: 0, price: (price,  quantity) => (price * quantity)}
         ]
         this.setState({menu, order});
+    }
+
+    handleClick() {
+        console.log("Clicked!")
     }
 
     render() {
     return (
         <div className="App">
             <Menu menu={this.state?.menu}/>
-            <Order order={this.state?.order} menu={this.state?.menu}/>
+            <Order click={this.handleClick} order={this.state?.order} menu={this.state?.menu}/>
         </div>
     );
   }
