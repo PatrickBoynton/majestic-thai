@@ -2,22 +2,18 @@ import './App.css';
 import {Component} from "react";
 
 class Menu extends Component {
-  constructor(props) {
-    super(props);
-    const state = {
-        menu: []
-    }
-  }
-    render() {
 
-      return <p>Menu</p>;
+    render() {
+        const menuItems = this.props.menu?.map((items, index) => (
+            <li key={index} onClick={() => console.log(items.item)}>{items.item}: ${items.price}</li>
+        ));
+      return (<ul>
+                {menuItems}
+            </ul>);
     }
 }
 
 class Order extends Component{
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return <p>Order</p>;
@@ -26,10 +22,6 @@ class Order extends Component{
 
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        const state = {}
-    }
 
     componentDidMount() {
         const menu = [
@@ -45,7 +37,7 @@ class App extends Component {
     render() {
     return (
         <div className="App">
-            <Menu menu={this.state}/>
+            <Menu menu={this.state?.menu}/>
             <Order/>
         </div>
     );
