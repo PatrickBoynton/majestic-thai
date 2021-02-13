@@ -16,7 +16,15 @@ class Menu extends Component {
 class Order extends Component{
 
     render() {
-        return <p>Order</p>;
+        const order = this.props.order?.map((items, index) =>
+            <li key={index}>
+                <h1>{items.item}</h1>
+                <p>${items.price(3.99, items.quantity)}</p>
+                <input value={items.quantity}/>
+            </li>);
+        return <ul>
+                {order}
+              </ul>;
     }
 }
 
@@ -30,15 +38,17 @@ class App extends Component {
             {item: "Cake", price: "2.99"},
             {item: "Steak", price: "18.99"}
         ]
-
-        this.setState({menu});
+        const order = [
+            {item: "Burger", quantity: 5, price: (price,  quantity) => (price * quantity)}
+        ]
+        this.setState({menu, order});
     }
 
     render() {
     return (
         <div className="App">
             <Menu menu={this.state?.menu}/>
-            <Order/>
+            <Order order={this.state?.order} menu={this.state?.menu}/>
         </div>
     );
   }
