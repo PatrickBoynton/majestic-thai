@@ -1,3 +1,8 @@
+nav > ul{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
 .App {
   text-align: center;
   display: flex;
@@ -7,8 +12,35 @@
 
 li{
   list-style: none;
+  padding: 5px;
 }
 .menu{
   align-self: center;
   text-align: center;
+}
+h1{
+  text-align: center;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+a:hover{
+  border-bottom: 3px solid #fff;
+}
+button{
+  border: 3px solid #fff;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+}
+input{
+  background-color: #000;
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 4px;
+}
+input:focus{
+  outline: none;
 }
