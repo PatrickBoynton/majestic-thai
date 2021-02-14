@@ -4,8 +4,8 @@ class Order extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            order: [this.props?.order],
-            value: this.props.quantity,
+            order: [],
+            value: 1,
             menuItem: "Add item to cart",
             quantity: 0
         }
@@ -14,7 +14,7 @@ class Order extends Component {
 
     //From the docs.
     handleChange(event) {
-        // console.log(this.props.item);
+        console.log(this.props.quantity)
         this.setState({value: event.target.value});
     }
 
