@@ -36,7 +36,6 @@ class App extends Component {
             }], menuItem: props?.menu[index].item,
             menuPrice: props?.menu[index].price, quantity: 1
         });
-        console.log(this.props.order);
     }
 
     render() {
