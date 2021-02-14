@@ -2,7 +2,7 @@ import './App.css';
 import {Component} from "react";
 import Order from './components/Order';
 import Menu from './components/Menu';
-
+import Nav from './components/Nav';
 
 class App extends Component {
     constructor(props) {
@@ -40,6 +40,9 @@ class App extends Component {
 
     render() {
         return (
+            <>
+                <Nav/>
+
             <div className="App">
                 <Menu click={this.handleClick}
                       menu={this.state?.menu}
@@ -52,6 +55,7 @@ class App extends Component {
                        quantity={this.state?.quantity}
                 />
             </div>
+            </>
         );
     }
 }
