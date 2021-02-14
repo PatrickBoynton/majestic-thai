@@ -15,7 +15,7 @@ class Menu extends Component {
                 <button onClick={() => this.props?.click(index, this.props)}>Add to Cart</button>
             </li>
         ));
-        return (<ul>
+        return (<ul className="menu">
             {menuItems}
         </ul>);
     }
