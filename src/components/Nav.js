@@ -4,10 +4,10 @@ class Nav extends Component {
     render() {
         return <nav>
                     <ul>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Menu</li>
-                        <li>Cart</li>
+                        <li><a href="#">Home</a> </li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Cart</a></li>
                     </ul>
                </nav>
     }
