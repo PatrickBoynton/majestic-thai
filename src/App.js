@@ -9,8 +9,7 @@ class App extends Component {
         super(props);
         this.state = {
             menuItem: "Add Item to Cart",
-            menuPrice: 0,
-            quantity: 0
+            order: []
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -22,7 +21,7 @@ class App extends Component {
             {item: "Cake", price: "2.99"},
             {item: "Steak", price: "18.99"}
         ]
-        const order = [{item: this.state.menuItem, quantity: 0, price: this.state.menuPrice}]
+        const order = [{}]
 
         this.setState({menu, order});
     }
@@ -30,19 +29,21 @@ class App extends Component {
     handleClick(index, props) {
         this.setState({
             [this.state.order]: [{
-                items: this.props[index]?.menuItem,
+                items: [{item: this.props[index]?.menuItem, price: this.props[index]?.price}],
                 quantity: 1,
                 price: this.props[index]?.menuPrice
-            }], menuItem: props?.menu[index].item,
-            menuPrice: props?.menu[index].price, quantity: 1
+            }],
+            menuItem: props?.menu[index].item,
+            menuPrice: props?.menu[index].price, quantity: 1,
         });
+        // this.state.order.push({item: this.props[index]?.item, price: this.props[index]?.price});
     }
 
     render() {
         return (
             <>
                 <Nav/>
-
+                <h1>Majestic Thai</h1>
             <div className="App">
                 <Menu click={this.handleClick}
                       menu={this.state?.menu}
