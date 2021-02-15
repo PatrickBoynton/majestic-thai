@@ -10,7 +10,7 @@ nav > ul{
   align-content: center;
 }
 .card{
-  background-color: #fff;
+  background-color: #edebeb;
   color: #000;
   margin-bottom: 30px;
   box-shadow: 0 5px 5px 3px rgba(255, 255, 255, 0.4);
@@ -27,16 +27,16 @@ h1{
   text-align: center;
 }
 a{
-  color: white;
+  color: #edebeb;
   text-decoration: none;
 }
 a:hover{
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid #edebeb;
 }
 button{
-  border: 3px solid #fff;
+  border: 3px solid #edebeb;
   background-color: #3e3e93;
-  color: #fff;
+  color: #edebeb;
   padding: 5px 10px;
   margin: 20px;
   align-self: center;
@@ -56,6 +56,12 @@ input{
   color: #fff;
   border: 3px solid #fff;
   padding: 4px;
+}
+/*Removes the scroll thingy in the input.*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input:focus{
   outline: none;
