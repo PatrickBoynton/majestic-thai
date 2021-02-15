@@ -18,6 +18,7 @@ class Order extends Component {
     }
     handleClick = () => {
         alert(`Your order of ${this.state.value} ${this.props.item} for a price of ${this.props.price * this.state.value}, will be ready in 15 minutes.`)
+        localStorage.setItem("order", JSON.stringify({item: this.props?.item, quantity: this.state.value, price: (this.props.price * this.state.value)}));
     }
     render() {
         const order = this.props.order?.map((items, index) =>
