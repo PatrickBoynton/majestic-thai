@@ -16,10 +16,10 @@ class App extends Component {
 
     componentDidMount() {
         const menu = [
-            {item: "Pizza", price: "12.99"},
-            {item: "Burger", price: "3.99"},
-            {item: "Cake", price: "2.99"},
-            {item: "Steak", price: "18.99"}
+            {item: "Curry", price: "4.99"},
+            {item: "Sweet and Sour", price: "5.99"},
+            {item: "Pad Thai", price: "8.99"},
+            {item: "Cake", price: "2.99"}
         ]
         const order = [{}]
 
@@ -45,7 +45,8 @@ class App extends Component {
                 <Nav/>
                 <h1>Majestic Thai</h1>
             <div className="App">
-                <Menu click={this.handleClick}
+                <Menu className="card"
+                      click={this.handleClick}
                       menu={this.state?.menu}
                       item={this.state?.menuItem}/>
 
