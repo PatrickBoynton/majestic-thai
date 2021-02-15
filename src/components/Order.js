@@ -4,9 +4,9 @@ class Order extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            order: [],
+            items: [],
             value: 1,
-            menuItem: "Add item to cart",
+            menuItem: "",
             quantity: 0
         }
         this.handleChange = this.handleChange.bind(this);
@@ -14,20 +14,24 @@ class Order extends Component {
 
     //From the docs.
     handleChange(event) {
-        console.log(this.props.quantity)
         this.setState({value: event.target.value});
     }
-
+    handleClick = () => {
+        alert(`Your order of ${this.state.value} ${this.props.item} for a price of ${this.props.price * this.state.value}, will be ready in 15 minutes.`)
+    }
     render() {
         const order = this.props.order?.map((items, index) =>
             <li key={index}>
                 <h1>{this.props.item}</h1>
-                <p>${this.props.price * this.state.value}</p>
+                <p>${this.props.price * this.state.value || 0}</p>
                 <input type="number" value={this.state.value} onChange={this.handleChange}/>
             </li>);
-        return <ul>
-            {order}
-        </ul>;
+        return <>
+            <ul>
+                {order}
+            </ul>
+            <button onClick={this.handleClick} className="btn">Order Now!</button>
+        </>;
     }
 }
 
