@@ -36,6 +36,7 @@ class App extends Component {
             menuItem: props?.menu[index].item,
             menuPrice: props?.menu[index].price, quantity: 1,
         });
+
         // this.state.order.push({item: this.props[index]?.item, price: this.props[index]?.price});
     }
 
