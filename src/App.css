@@ -13,6 +13,7 @@ nav > ul{
   background-color: #fff;
   color: #000;
   margin-bottom: 10px;
+  box-shadow: 0 5px 5px 3px rgba(255, 255, 255, 0.4);
 }
 li{
   list-style: none;
