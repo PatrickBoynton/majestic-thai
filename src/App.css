@@ -9,7 +9,6 @@ nav > ul{
   justify-content: center;
   align-content: center;
 }
-
 li{
   list-style: none;
   padding: 5px;
@@ -33,7 +32,8 @@ button{
   background-color: #000;
   color: #fff;
   padding: 5px 10px;
-  margin: 5px;
+  margin: 20px;
+  align-self: center;
 }
 input{
   background-color: #000;
