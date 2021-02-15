@@ -11,7 +11,7 @@ class Menu extends Component {
 
     render() {
         const menuItems = this.props.menu?.map((items, index) => (
-            <li key={index}>{items.item}: ${items.price}
+            <li className="card" key={index}>{items.item}: ${items.price}
                 <button onClick={() => this.props?.click(index, this.props)}>Add to Cart</button>
             </li>
         ));
