@@ -15,15 +15,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const menu = [
-            {item: "Curry", price: "4.99"},
-            {item: "Sweet and Sour", price: "5.99"},
-            {item: "Pad Thai", price: "8.99"},
-            {item: "Cake", price: "2.99"}
-        ]
-        const order = [{}]
+        const menu = []
 
-        this.setState({menu, order});
+        fetch("http://127.0.0.1:8000/menu-items")
+            .then(res => (res.json()))
+            .then(result => this.setState({menu: result}))
+
+        const order = [{}]
+        this.setState({order});
     }
 
     handleClick(index, props) {
