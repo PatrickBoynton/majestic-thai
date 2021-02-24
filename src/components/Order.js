@@ -16,9 +16,21 @@ class Order extends Component {
     handleChange(event) {
         this.setState({value: event.target.value});
     }
-    handleClick = () => {
+    handleClick = async () => {
         alert(`Your order of ${this.state.value} ${this.props.item} for a price of ${(this.props.price * this.state.value).toFixed(2)}, will be ready in ${Math.round(Math.random() * 25) + 5} minutes.`)
-        localStorage.setItem("order", JSON.stringify({item: this.props?.item, quantity: this.state.value, price: (this.props.price * this.state.value)}));
+        // localStorage.setItem("order", JSON.stringify({item: this.props?.item, quantity: this.state.value, price: (this.props.price * this.state.value)}));
+
+        await fetch("http://127.0.0.1:8000/orders/", {
+            method: "post",
+            headers: {
+                "Content-Type": "Application/Json",
+            },
+            body: JSON.stringify({
+                item: this.props.item,
+                quantity: this.state.value,
+                price: this.props.price * this.state.value
+            })
+        })
     }
 
     render() {
